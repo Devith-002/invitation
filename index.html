@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Wedding Invitation</title>
+
+<style>
+.invitation-box{
+width:80%;
+margin:auto;
+background:white;
+padding:40px;
+border:8px solid #cfa0ff;
+border-radius:20px;
+box-shadow:0 0 20px rgba(0,0,0,0.2);
+}
+body{
+margin:0;
+font-family:Khmer OS Battambang;
+background:#f8e8ff;
+text-align:center;
+}
+<div class="invitation-box">
+
+<h1>សិរីមង្គលអាពាហ៍ពិពាហ៍</h1>
+
+<div class="names">
+Xiao Zhi ❤️ Xiao Mei
+</div>
+
+<p>
+យើងខ្ញុំសូមគោរពអញ្ជើញ<br>
+លោក លោកស្រី និងភ្ញៀវកិត្តិយស<br>
+អញ្ជើញចូលរួមពិធីមង្គលការ
+</p>
+
+</div>
+
+.section{
+padding:40px;
+}
+
+h1{
+color:#7a2ca3;
+font-size:40px;
+}
+
+.names{
+font-size:30px;
+color:#c23bc2;
+}
+
+/* flower animation */
+
+.flower{
+position:fixed;
+top:-50px;
+font-size:24px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(0)}
+100%{transform:translateY(100vh)}
+}
+
+/* gallery */
+
+.gallery{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:20px;
+}
+
+.gallery img{
+width:220px;
+border-radius:15px;
+}
+
+/* video */
+
+video{
+width:400px;
+border-radius:10px;
+}
+
+iframe{
+width:400px;
+height:225px;
+}
+
+/* map */
+
+iframe.map{
+width:90%;
+height:300px;
+border:0;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="section">
+
+<h1>សិរីមង្គលអាពាហ៍ពិពាហ៍</h1>
+
+<div class="names">
+Xiao Zhi ❤️ Xiao Mei
+</div>
+
+<p>
+យើងខ្ញុំសូមគោរពអញ្ជើញ<br>
+លោក លោកស្រី និងភ្ញៀវកិត្តិយស<br>
+អញ្ជើញចូលរួមពិធីមង្គលការ
+</p>
+
+</div>
+
+<!-- countdown -->
+
+<div class="section">
+
+<h2>Countdown ថ្ងៃរៀបការ</h2>
+
+<h1 id="countdown"></h1>
+
+</div>
+
+<!-- gallery -->
+
+<div class="section">
+
+<h2>Photo Gallery</h2>
+
+<div class="gallery">
+
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+
+</div>
+
+</div>
+
+<!-- video -->
+
+<div class="section">
+
+<h2>Video</h2>
+
+<video controls>
+<source src="video.mp4" type="video/mp4">
+</video>
+
+</div>
+
+<!-- music -->
+
+<div class="section">
+
+<h2>Music</h2>
+
+<audio controls autoplay loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+
+<!-- map -->
+
+<div class="section">
+
+<h2>Location</h2>
+
+<iframe class="map"
+src="https://www.google.com/maps?q=Phnom+Penh&output=embed">
+</iframe>
+
+</div>
+
+<script>
+
+/* flower animation */
+
+function createFlower(){
+
+const flower=document.createElement("div");
+
+flower.classList.add("flower");
+
+flower.innerHTML="🌸";
+
+flower.style.left=Math.random()*100+"vw";
+
+flower.style.animationDuration=(3+Math.random()*5)+"s";
+
+document.body.appendChild(flower);
+
+setTimeout(()=>{flower.remove()},8000)
+
+}
+
+setInterval(createFlower,300);
+
+
+/* countdown */
+
+var weddingDate=new Date("Apr 20, 2026 00:00:00").getTime();
+
+var x=setInterval(function(){
+
+var now=new Date().getTime();
+
+var distance=weddingDate-now;
+
+var days=Math.floor(distance/(1000*60*60*24));
+
+var hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+
+var minutes=Math.floor((distance%(1000*60*60))/(1000*60));
+
+var seconds=Math.floor((distance%(1000*60))/1000);
+
+document.getElementById("countdown").innerHTML=
+days+"ថ្ងៃ "+hours+"ម៉ោង "+minutes+"នាទី "+seconds+"វិនាទី";
+
+},1000);
+
+</script>
+
+</body>
+</html>
